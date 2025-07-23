@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-function CourseManager() {
-  const [courses, setCourses] = useState([]);
+function CourseManager({ courses, setCourses }) {
   const [input, setInput] = useState('');
   const [editIndex, setEditIndex] = useState(-1);
 
