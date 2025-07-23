@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './App.css';
 import CourseTypeManager from './components/CourseTypeManager';
 import CourseManager from './components/CourseManager';
 import CourseOffering from './components/CourseOffering';
