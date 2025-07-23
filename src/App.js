@@ -7,25 +7,27 @@ import StudentRegistration from './components/StudentRegistration';
 function App() {
   const [courseTypes, setCourseTypes] = useState([]);
   const [courses, setCourses] = useState([]);
+  const [offerings, setOfferings] = useState([]); // NEW
 
   return (
     <div>
       <h1>🎓 Student Registration System</h1>
 
-      {/* Manage Course Types */}
       <CourseTypeManager
         courseTypes={courseTypes}
         setCourseTypes={setCourseTypes}
       />
 
-      {/* Manage Courses */}
       <CourseManager courses={courses} setCourses={setCourses} />
 
-      {/* Manage Course Offerings */}
-      <CourseOffering courseTypes={courseTypes} courses={courses} />
+      <CourseOffering
+        courseTypes={courseTypes}
+        courses={courses}
+        offerings={offerings}
+        setOfferings={setOfferings}
+      />
 
-      {/* Student Registration */}
-      <StudentRegistration />
+      <StudentRegistration offerings={offerings} />
     </div>
   );
 }
