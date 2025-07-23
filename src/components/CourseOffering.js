@@ -1,13 +1,20 @@
 import React, { useState } from 'react';
 
-function CourseOffering({ courseTypes, courses }) {
-  const [offerings, setOfferings] = useState([]);
+function CourseOffering({ courseTypes, courses, offerings, setOfferings }) {
   const [selectedType, setSelectedType] = useState('');
   const [selectedCourse, setSelectedCourse] = useState('');
 
   const handleAddOffering = () => {
     if (!selectedType || !selectedCourse) return;
+
     const newOffering = `${selectedType} - ${selectedCourse}`;
+
+    // Avoid duplicates
+    if (offerings.includes(newOffering)) {
+      alert("This offering already exists!");
+      return;
+    }
+
     setOfferings([...offerings, newOffering]);
     setSelectedType('');
     setSelectedCourse('');
